@@ -22,9 +22,12 @@ const updateWeather = () => {
   )
     .then((response) => response.json())
     .then((data) => {
-      loader.classList.add("hide");
       // console.log(data);
       info.textContent = data.current.temp_c + "°C";
+      loader.classList.add("hide");
+    })
+    .catch(() => {
+      info.textContent = "API unavailable";
     });
 };
 
